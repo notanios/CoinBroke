@@ -8,11 +8,16 @@
 import Foundation
 import CryptoAPI
 
-class CoinRowViewModel: Identifiable {
-    var coin: Coin
+class CoinRowViewModel: Identifiable, ObservableObject {
+    @Published private var coin: Coin
+    
+    private(set) var maxPrice: Double
+    private(set) var minPrice: Double
     
     init(coin: Coin) {
         self.coin = coin
+        self.minPrice = coin.price
+        self.maxPrice = coin.price
     }
     
     var id: String {
@@ -27,15 +32,28 @@ class CoinRowViewModel: Identifiable {
         coin.code
     }
     
+    var imageUrl: String? {
+        coin.imageUrl
+    }
+    
     var price: String {
         String(format: "$ %.02f", coin.price)
     }
     
-    var minPrice: String {
-        "% 666.66"
+    var minDisplayPrice: String {
+        String(format: "$ %.02f", minPrice)
     }
     
-    var maxPrice: String {
-        "% 666.66"
+    var maxDisplayPrice: String {
+        String(format: "$ %.02f", maxPrice)
+    }
+    
+    func update(with coin: Coin) {
+      DispatchQueue.main.async {
+        self.coin = coin
+          
+        self.maxPrice = [self.maxPrice, coin.price].max() ?? coin.price
+        self.minPrice = [self.minPrice, coin.price].min() ?? coin.price
+      }
     }
 }

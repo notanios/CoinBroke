@@ -6,14 +6,27 @@
 //
 
 import Foundation
+import CryptoAPI
 
-class CryptoViewModel {
+class CryptoViewModel: ObservableObject, Identifiable {
+    
     private var coinFetcher: CoinFetchable
-    var coinModels: [CoinRowViewModel] = []
+    @Published var coinModels: [CoinRowViewModel] = []
     
     init(coinFetcher: CoinFetchable) {
         self.coinFetcher = coinFetcher
         self.getAllTheCoins()
+        self.coinFetcher.startFetching { coin in
+            self.updateViewModels(coin: coin)
+        }
+    }
+    
+    private func updateViewModels(coin: Coin) {
+        if let tableModel = self.coinModels.first(where: { sourceModel in
+          sourceModel.code == coin.code
+        }) {
+          tableModel.update(with: coin)
+        }
     }
     
     private func getAllTheCoins() {

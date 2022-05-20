@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CryptoView: View {
-    var viewModel: CryptoViewModel
+    @ObservedObject var viewModel: CryptoViewModel
     
     init(viewModel: CryptoViewModel) {
         self.viewModel = viewModel

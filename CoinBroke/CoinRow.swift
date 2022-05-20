@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CoinRow: View {
-    var viewModel: CoinRowViewModel
+    @ObservedObject private var viewModel: CoinRowViewModel
     
     init(viewModel: CoinRowViewModel) {
         self.viewModel = viewModel
@@ -26,16 +26,16 @@ struct CoinRow: View {
                 Spacer()
                 Text("Price: \(viewModel.price)")
                     .padding(5)
-                    .cornerRadius(5)
                     .font(.system(size: 22))
                     .background(.green)
+                    .cornerRadius(5)
             }
             
             HStack {
-                Text("min: \(viewModel.minPrice)")
+                Text("min: \(viewModel.minDisplayPrice)")
                     .font(.system(size: 10))
                     .foregroundColor(.gray)
-                Text("max: \(viewModel.maxPrice)")
+                Text("max: \(viewModel.maxDisplayPrice)")
                     .font(.system(size: 10))
                     .foregroundColor(.gray)
                 Spacer()
