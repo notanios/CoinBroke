@@ -15,7 +15,13 @@ struct CryptoView: View {
     }
     
     var body: some View {
-        ListOfCoins
+        NavigationView {
+            List {
+                ListOfCoins
+            }
+            .listStyle(.grouped)
+            .navigationTitle("You're Broke TV 🪣")
+        }
     }
 }
 
