@@ -9,8 +9,15 @@ import Foundation
 import CryptoAPI
 
 class CoinRowViewModel: Identifiable, ObservableObject {
+    enum Dynamics {
+      case growing
+      case declining
+      case stable
+    }
+    
     @Published private var coin: Coin
     
+    private(set) var dynamics: Dynamics
     private(set) var maxPrice: Double
     private(set) var minPrice: Double
     
@@ -18,6 +25,7 @@ class CoinRowViewModel: Identifiable, ObservableObject {
         self.coin = coin
         self.minPrice = coin.price
         self.maxPrice = coin.price
+        self.dynamics = .stable
     }
     
     var id: String {
@@ -50,6 +58,8 @@ class CoinRowViewModel: Identifiable, ObservableObject {
     
     func update(with coin: Coin) {
       DispatchQueue.main.async {
+        self.dynamics = coin.price < self.coin.price ? .declining : coin.price > self.coin.price ? .growing : .stable
+          
         self.coin = coin
           
         self.maxPrice = [self.maxPrice, coin.price].max() ?? coin.price

@@ -10,6 +10,24 @@ import SwiftUI
 
 struct CoinRow: View {
     @ObservedObject private var viewModel: CoinRowViewModel
+    @State private var animationStatus: AnimationStatus = .none
+    
+    enum AnimationStatus {
+      case none
+      case increased
+      case decreased
+
+      var color: Color {
+        switch self {
+        case .none:
+            return .white
+        case .increased:
+            return .green
+        case .decreased:
+            return .red
+        }
+      }
+    }
     
     init(viewModel: CoinRowViewModel) {
         self.viewModel = viewModel
@@ -27,8 +45,23 @@ struct CoinRow: View {
                 Text("Price: \(viewModel.price)")
                     .padding(5)
                     .font(.system(size: 22))
-                    .background(.green)
+                    .background(animationStatus.color)
                     .cornerRadius(5)
+                    .animation(.spring(), value: animationStatus)
+                    .onChange(of: viewModel.dynamics) { dynamics in
+                      switch dynamics {
+                      case .growing:
+                        animationStatus = .increased
+                      case .declining:
+                        animationStatus = .decreased
+                      case .stable:
+                        animationStatus = .none
+                      }
+                      
+                      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                        animationStatus = .none
+                      }
+                    }
             }
             
             HStack {
