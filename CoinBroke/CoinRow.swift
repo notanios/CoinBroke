@@ -36,7 +36,7 @@ struct CoinRow: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "bitcoinsign.circle")
+                AsyncImage(withURL: viewModel.imageUrl, fallbackImage: nil)
                 Text(viewModel.name)
                     .font(.system(size: 16))
                 Text(viewModel.code)
