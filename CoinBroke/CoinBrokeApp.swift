@@ -11,7 +11,8 @@ import SwiftUI
 struct CoinBrokeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel = CryptoViewModel()
+            CryptoView(viewModel: viewModel)
         }
     }
 }

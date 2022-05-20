@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		F59F98B52838218400433661 /* CoinBrokeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98B42838218400433661 /* CoinBrokeApp.swift */; };
-		F59F98B72838218400433661 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98B62838218400433661 /* ContentView.swift */; };
+		F59F98B72838218400433661 /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98B62838218400433661 /* CryptoView.swift */; };
 		F59F98B92838218500433661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F59F98B82838218500433661 /* Assets.xcassets */; };
 		F59F98BC2838218500433661 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F59F98BB2838218500433661 /* Preview Assets.xcassets */; };
+		F59F98C3283822A100433661 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C2283822A100433661 /* CryptoViewModel.swift */; };
+		F59F98C5283823C500433661 /* CoinRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C4283823C500433661 /* CoinRow.swift */; };
+		F59F98C7283824BC00433661 /* CoinRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C6283824BC00433661 /* CoinRowModel.swift */; };
+		F59F98C9283825FD00433661 /* CryptoAPI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59F98C8283825FD00433661 /* CryptoAPI.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F59F98B12838218400433661 /* CoinBroke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinBroke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F59F98B42838218400433661 /* CoinBrokeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBrokeApp.swift; sourceTree = "<group>"; };
-		F59F98B62838218400433661 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F59F98B62838218400433661 /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 		F59F98B82838218500433661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F59F98BB2838218500433661 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F59F98C2283822A100433661 /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
+		F59F98C4283823C500433661 /* CoinRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRow.swift; sourceTree = "<group>"; };
+		F59F98C6283824BC00433661 /* CoinRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowModel.swift; sourceTree = "<group>"; };
+		F59F98C8283825FD00433661 /* CryptoAPI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CryptoAPI.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59F98C9283825FD00433661 /* CryptoAPI.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +61,12 @@
 			isa = PBXGroup;
 			children = (
 				F59F98B42838218400433661 /* CoinBrokeApp.swift */,
-				F59F98B62838218400433661 /* ContentView.swift */,
+				F59F98B62838218400433661 /* CryptoView.swift */,
+				F59F98C2283822A100433661 /* CryptoViewModel.swift */,
+				F59F98C4283823C500433661 /* CoinRow.swift */,
+				F59F98C6283824BC00433661 /* CoinRowModel.swift */,
 				F59F98B82838218500433661 /* Assets.xcassets */,
+				F59F98C8283825FD00433661 /* CryptoAPI.xcframework */,
 				F59F98BA2838218500433661 /* Preview Content */,
 			);
 			path = CoinBroke;
@@ -137,8 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F59F98B72838218400433661 /* ContentView.swift in Sources */,
+				F59F98B72838218400433661 /* CryptoView.swift in Sources */,
+				F59F98C5283823C500433661 /* CoinRow.swift in Sources */,
+				F59F98C7283824BC00433661 /* CoinRowModel.swift in Sources */,
 				F59F98B52838218400433661 /* CoinBrokeApp.swift in Sources */,
+				F59F98C3283822A100433661 /* CryptoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
