@@ -16,6 +16,7 @@ class CoinRowViewModel: Identifiable, ObservableObject {
     }
     
     @Published private var coin: Coin
+    private var storage: DataPersistable?
     
     private(set) var dynamics: Dynamics
     private(set) var maxPrice: Double
@@ -26,6 +27,7 @@ class CoinRowViewModel: Identifiable, ObservableObject {
         self.minPrice = coin.price
         self.maxPrice = coin.price
         self.dynamics = .stable
+        self.storage = RealmPersistance()
     }
     
     var id: String {
@@ -58,12 +60,30 @@ class CoinRowViewModel: Identifiable, ObservableObject {
     
     func update(with coin: Coin) {
       DispatchQueue.main.async {
-        self.dynamics = coin.price < self.coin.price ? .declining : coin.price > self.coin.price ? .growing : .stable
+          self.dynamics = coin.price < self.coin.price ? .declining : coin.price > self.coin.price ? .growing : .stable
           
-        self.coin = coin
+          self.coin = coin
           
-        self.maxPrice = [self.maxPrice, coin.price].max() ?? coin.price
-        self.minPrice = [self.minPrice, coin.price].min() ?? coin.price
+          if case .success(let coinUpdates) = self.storage?.getHistory(forCoinWithCode: coin.code) {
+              if let min = coinUpdates.min(by: { leftCoin, rightCoin in
+                  leftCoin.price < rightCoin.price
+              }) {
+                  self.minPrice = min.price
+              } else {
+                  self.minPrice = coin.price
+              }
+              
+              if let max = coinUpdates.min(by: { leftCoin, rightCoin in
+                  leftCoin.price > rightCoin.price
+              }) {
+                  self.maxPrice = max.price
+              } else {
+                  self.maxPrice = coin.price
+              }
+          }
+          
+//          self.maxPrice = [self.maxPrice, coin.price].max() ?? coin.price
+//          self.minPrice = [self.minPrice, coin.price].min() ?? coin.price
       }
     }
 }

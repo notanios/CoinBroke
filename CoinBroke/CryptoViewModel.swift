@@ -11,14 +11,30 @@ import CryptoAPI
 class CryptoViewModel: ObservableObject, Identifiable {
     
     private var coinFetcher: CoinFetchable
+    private var storage: DataPersistable?
     @Published var coinModels: [CoinRowViewModel] = []
     
     init(coinFetcher: CoinFetchable) {
         self.coinFetcher = coinFetcher
+        self.storage = RealmPersistance()
         self.getAllTheCoins()
         self.coinFetcher.startFetching { coin in
+            self.save(coin: coin)
             self.updateViewModels(coin: coin)
         }
+    }
+    
+    private func save(coin: Coin) {
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        guard let storage = self.storage else { return }
+        let storedCoin = StoredCoin()
+          storedCoin.name = coin.name
+          storedCoin.imageUrl = coin.imageUrl
+          storedCoin.price = coin.price
+          storedCoin.code = coin.code
+        _ = storage.save(coin: storedCoin)
+      }
     }
     
     private func updateViewModels(coin: Coin) {

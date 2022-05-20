@@ -18,6 +18,9 @@
 		F59F98CC28382C9600433661 /* CoinFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98CB28382C9600433661 /* CoinFetchable.swift */; };
 		F59F98CF283834A700433661 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98CE283834A700433661 /* AsyncImage.swift */; };
 		F59F98D1283834C700433661 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98D0283834C700433661 /* ImageLoader.swift */; };
+		F59F98D42838362000433661 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F59F98D32838362000433661 /* Realm */; };
+		F59F98D62838362000433661 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F59F98D52838362000433661 /* RealmSwift */; };
+		F59F98D92838365800433661 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98D82838365800433661 /* Persistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,7 @@
 		F59F98CB28382C9600433661 /* CoinFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFetchable.swift; sourceTree = "<group>"; };
 		F59F98CE283834A700433661 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		F59F98D0283834C700433661 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F59F98D82838365800433661 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59F98D62838362000433661 /* RealmSwift in Frameworks */,
+				F59F98D42838362000433661 /* Realm in Frameworks */,
 				F59F98C9283825FD00433661 /* CryptoAPI.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +98,7 @@
 			children = (
 				F59F98CD2838349500433661 /* AsyncImage */,
 				F59F98CB28382C9600433661 /* CoinFetchable.swift */,
+				F59F98D82838365800433661 /* Persistance.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -121,6 +128,10 @@
 			dependencies = (
 			);
 			name = CoinBroke;
+			packageProductDependencies = (
+				F59F98D32838362000433661 /* Realm */,
+				F59F98D52838362000433661 /* RealmSwift */,
+			);
 			productName = CoinBroke;
 			productReference = F59F98B12838218400433661 /* CoinBroke.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +160,9 @@
 				Base,
 			);
 			mainGroup = F59F98A82838218400433661;
+			packageReferences = (
+				F59F98D22838362000433661 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = F59F98B22838218400433661 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,6 +194,7 @@
 				F59F98B72838218400433661 /* CryptoView.swift in Sources */,
 				F59F98C5283823C500433661 /* CoinRow.swift in Sources */,
 				F59F98C7283824BC00433661 /* CoinRowViewModel.swift in Sources */,
+				F59F98D92838365800433661 /* Persistance.swift in Sources */,
 				F59F98B52838218400433661 /* CoinBrokeApp.swift in Sources */,
 				F59F98D1283834C700433661 /* ImageLoader.swift in Sources */,
 				F59F98C3283822A100433661 /* CryptoViewModel.swift in Sources */,
@@ -383,6 +398,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F59F98D22838362000433661 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F59F98D32838362000433661 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F59F98D22838362000433661 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		F59F98D52838362000433661 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F59F98D22838362000433661 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F59F98A92838218400433661 /* Project object */;
 }
