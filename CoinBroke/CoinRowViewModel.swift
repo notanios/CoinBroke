@@ -8,7 +8,7 @@
 import Foundation
 import CryptoAPI
 
-class CoinRowModel: Identifiable {
+class CoinRowViewModel: Identifiable {
     var coin: Coin
     
     init(coin: Coin) {
@@ -20,15 +20,15 @@ class CoinRowModel: Identifiable {
     }
     
     var name: String {
-        "Name"
+        coin.name
     }
     
     var code: String {
-        "Code"
+        coin.code
     }
     
     var price: String {
-        "$ 666.66"
+        String(format: "$ %.02f", coin.price)
     }
     
     var minPrice: String {

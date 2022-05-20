@@ -6,33 +6,22 @@
 //
 
 import Foundation
-import CryptoAPI
 
-class CryptoViewModel: CryptoDelegate {
-    var crypto: Crypto?
-    var coinModels: [CoinRowModel] = []
+class CryptoViewModel {
+    private var coinFetcher: CoinFetchable
+    var coinModels: [CoinRowViewModel] = []
     
-    init() {
-        self.crypto = Crypto(delegate: self)
-        
-        if let crypto = self.crypto {
-            let coins = crypto.getAllCoins()
-            
-            self.coinModels = coins.map({ coin in
-                CoinRowModel(coin: coin)
-            })
+    init(coinFetcher: CoinFetchable) {
+        self.coinFetcher = coinFetcher
+        self.getAllTheCoins()
+    }
+    
+    private func getAllTheCoins() {
+        let coins = self.coinFetcher.getAllCoins()
+        let models = coins.map { coin in
+          return CoinRowViewModel(coin: coin)
         }
-    }
-    
-    
-    //Crypto Delegate
-    
-    func cryptoAPIDidConnect() {
-    }
-    
-    func cryptoAPIDidUpdateCoin(_ coin: Coin) {
-    }
-    
-    func cryptoAPIDidDisconnect() {
+        
+        self.coinModels = models
     }
 }

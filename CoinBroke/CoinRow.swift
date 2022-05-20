@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 struct CoinRow: View {
-    var viewModel: CoinRowModel
+    var viewModel: CoinRowViewModel
     
-    init(viewModel: CoinRowModel) {
+    init(viewModel: CoinRowViewModel) {
         self.viewModel = viewModel
     }
     

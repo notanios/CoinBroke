@@ -13,8 +13,9 @@
 		F59F98BC2838218500433661 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F59F98BB2838218500433661 /* Preview Assets.xcassets */; };
 		F59F98C3283822A100433661 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C2283822A100433661 /* CryptoViewModel.swift */; };
 		F59F98C5283823C500433661 /* CoinRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C4283823C500433661 /* CoinRow.swift */; };
-		F59F98C7283824BC00433661 /* CoinRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C6283824BC00433661 /* CoinRowModel.swift */; };
+		F59F98C7283824BC00433661 /* CoinRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98C6283824BC00433661 /* CoinRowViewModel.swift */; };
 		F59F98C9283825FD00433661 /* CryptoAPI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59F98C8283825FD00433661 /* CryptoAPI.xcframework */; };
+		F59F98CC28382C9600433661 /* CoinFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59F98CB28382C9600433661 /* CoinFetchable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +26,9 @@
 		F59F98BB2838218500433661 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F59F98C2283822A100433661 /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 		F59F98C4283823C500433661 /* CoinRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRow.swift; sourceTree = "<group>"; };
-		F59F98C6283824BC00433661 /* CoinRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowModel.swift; sourceTree = "<group>"; };
+		F59F98C6283824BC00433661 /* CoinRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowViewModel.swift; sourceTree = "<group>"; };
 		F59F98C8283825FD00433661 /* CryptoAPI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CryptoAPI.xcframework; sourceTree = "<group>"; };
+		F59F98CB28382C9600433661 /* CoinFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFetchable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,8 @@
 				F59F98B62838218400433661 /* CryptoView.swift */,
 				F59F98C2283822A100433661 /* CryptoViewModel.swift */,
 				F59F98C4283823C500433661 /* CoinRow.swift */,
-				F59F98C6283824BC00433661 /* CoinRowModel.swift */,
+				F59F98C6283824BC00433661 /* CoinRowViewModel.swift */,
+				F59F98CA28382C5500433661 /* Helpers */,
 				F59F98B82838218500433661 /* Assets.xcassets */,
 				F59F98C8283825FD00433661 /* CryptoAPI.xcframework */,
 				F59F98BA2838218500433661 /* Preview Content */,
@@ -78,6 +81,14 @@
 				F59F98BB2838218500433661 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F59F98CA28382C5500433661 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F59F98CB28382C9600433661 /* CoinFetchable.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59F98CC28382C9600433661 /* CoinFetchable.swift in Sources */,
 				F59F98B72838218400433661 /* CryptoView.swift in Sources */,
 				F59F98C5283823C500433661 /* CoinRow.swift in Sources */,
-				F59F98C7283824BC00433661 /* CoinRowModel.swift in Sources */,
+				F59F98C7283824BC00433661 /* CoinRowViewModel.swift in Sources */,
 				F59F98B52838218400433661 /* CoinBrokeApp.swift in Sources */,
 				F59F98C3283822A100433661 /* CryptoViewModel.swift in Sources */,
 			);
